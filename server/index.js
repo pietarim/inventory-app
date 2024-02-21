@@ -1,17 +1,24 @@
 import express from 'express'
-/* import dotenv from 'dotenv' */
 import cors from 'cors'
 import { port, dbUri } from './config.js'
 import issuanceRouter from './routers/issuance.js'
-
-/* dotenv.config() */
+import deviceRouter from './routers/devices.js'
+import mongoose from 'mongoose'
 
 const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.use('/issuance', issuanceRouter)
-app.get('/', (req, res) => {
+try {
+  await mongoose.connect(dbUri)
+  console.log('Connected to database')
+} catch (error) {
+  console.log('Failed to connect to database', error)
+}
+
+app.use('/api/devices', deviceRouter)
+app.use('/api/issuances', issuanceRouter)
+app.get('/api', (req, res) => {
   res.send('inventory')
 })
 

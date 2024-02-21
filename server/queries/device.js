@@ -1,11 +1,16 @@
-import mongoose from 'mongoose'
-import Device from '../models/device'
-import { dbUri } from '../config.js'
-
-mongoose.connect(dbUri)
+import { Device } from '../models/device.js'
+import { Issuance } from '../models/issuance.js'
 
 export const getDeviceById = async (id) => {
-  const device = await Device.find({ number: id })
-  mongoose.connection.close()
+  const device = await Device.find({ deviceNumber: id })
   return device
+}
+
+export const getDevices = async () => {
+  const devices = await Device.find(
+    {},
+    'name manufacturer deviceNumber'
+  ).populate('currentIssuance')
+
+  return devices
 }

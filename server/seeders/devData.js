@@ -1,13 +1,13 @@
 export const devices = [
-  { name: 'laptop', manufacturer: 'Dell', devicaNumber: 798123 },
-  { name: 'laptop', manufacturer: 'Apple', devicaNumber: 123798 },
-  { name: 'laptop', manufacturer: 'Lenovo', devicaNumber: 798798 },
-  { name: 'mobile', manufacturer: 'Apple', devicaNumber: 123000 },
-  { name: 'mobile', manufacturer: 'Samsung', devicaNumber: 798123 },
-  { name: 'mobile', manufacturer: 'Google', devicaNumber: 123798 },
-  { name: 'tablet', manufacturer: 'Apple', devicaNumber: 798798 },
-  { name: 'tablet', manufacturer: 'Samsung', devicaNumber: 123000 },
-  { name: 'tablet', manufacturer: 'Google', devicaNumber: 798123 },
+  { name: 'laptop', manufacturer: 'Dell', deviceNumber: 798122 },
+  { name: 'laptop', manufacturer: 'Apple', deviceNumber: 123794 },
+  { name: 'laptop', manufacturer: 'Lenovo', deviceNumber: 798798 },
+  { name: 'mobile', manufacturer: 'Apple', deviceNumber: 123000 },
+  { name: 'mobile', manufacturer: 'Samsung', deviceNumber: 798123 },
+  { name: 'mobile', manufacturer: 'Google', deviceNumber: 123711 },
+  { name: 'tablet', manufacturer: 'Apple', deviceNumber: 798722 },
+  { name: 'tablet', manufacturer: 'Samsung', deviceNumber: 123001 },
+  { name: 'tablet', manufacturer: 'Google', deviceNumber: 798111 },
 ]
 
 export const issuances = [

@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const schema = new mongoose.Schema({
   name: String,
   manufacturer: String,
-  devicaNumber: String,
+  deviceNumber: String,
   currentIssuance: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Issuance',
