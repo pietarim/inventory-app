@@ -6,5 +6,6 @@ mongoose.connect(dbUri)
 
 export const getDeviceById = async (id) => {
   const device = await Device.find({ number: id })
+  mongoose.connection.close()
   return device
 }

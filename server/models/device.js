@@ -3,10 +3,12 @@ import mongoose from 'mongoose'
 const schema = new mongoose.Schema({
   name: String,
   manufacturer: String,
-  department: String,
-  usersName: String,
-  idNumber: String,
-  issuances: [
+  devicaNumber: String,
+  currentIssuance: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Issuance',
+  },
+  issuanceHistory: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Issuance',
@@ -14,4 +16,4 @@ const schema = new mongoose.Schema({
   ],
 })
 
-export default mongoose.model('Device', schema)
+export const Device = mongoose.model('Device', schema)

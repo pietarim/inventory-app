@@ -7,4 +7,4 @@ const schema = new mongoose.Schema({
   receiver: String,
 })
 
-export default mongoose.model('Issuance', schema)
+export const Issuance = mongoose.model('Issuance', schema)

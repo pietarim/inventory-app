@@ -1,10 +1,13 @@
 {
+  "type": "module",
   "name": "inventory-app",
   "version": "1.0.0",
   "description": "App for keeping track of issued devices.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:local": "docker run --inventory-db mongodb-container -d -p 27017:27017 mongo",
+    "seed:db": "node ./seeders/seedData.js"
   },
   "author": "Pietari Murtomäki",
   "license": "ISC",

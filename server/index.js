@@ -1,12 +1,10 @@
 import express from 'express'
-import dotenv from 'dotenv'
+/* import dotenv from 'dotenv' */
 import cors from 'cors'
 import { port, dbUri } from './config.js'
 import issuanceRouter from './routers/issuance.js'
-import { dbUri } from '../config.js'
 
-dotenv.config()
-mongoose.connect(dbUri)
+/* dotenv.config() */
 
 const app = express()
 app.use(express.json())
