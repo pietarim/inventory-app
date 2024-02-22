@@ -24,6 +24,7 @@ const SearchDevice = ({
       device.deviceNumber.includes(searchTerm)
     )
     setSearchResults(results)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm])
 
   const handleDeviceSelect = (device) => {

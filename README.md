@@ -19,10 +19,6 @@ Add .env to root of `/server` directory:
 
 ## Run app
 
-In order to run the client in development mode run:
-
-`cd client && npm run dev`
-
 In order to run the server with nodemon run:
 
 `cd server && npm run run:dev`
@@ -30,6 +26,12 @@ In order to run the server with nodemon run:
 Or with node, run:
 
 `cd server && node index.js`
+
+In order to run the client in development mode open new terminal console tab and run:
+
+`cd client && npm run dev`
+
+Client will run at: http://localhost:5173
 
 ## Seeding development data
 
