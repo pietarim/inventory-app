@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import { port, dbUri } from './config.js'
+import { port, dbUri, clientUrl } from './config.js'
 import issuanceRouter from './routers/issuance.js'
 import deviceRouter from './routers/devices.js'
 import mongoose from 'mongoose'
@@ -9,7 +9,7 @@ const app = express()
 app.use(express.json())
 app.use(
   cors({
-    origin: ['http://localhost:5173'],
+    origin: [clientUrl],
   })
 )
 

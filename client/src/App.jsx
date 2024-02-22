@@ -25,7 +25,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/device/:id" element={<DetailedDevice />} />
-        <Route path="/" element={<IssueForm />} />
+        <Route path="/" element={<IssueForm devices={devices} />} />
       </Routes>
     </Router>
   )

@@ -1,29 +1,154 @@
-import react from 'react'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import { useState } from 'react'
+import PropTypes from 'prop-types'
+import SearchDevice from './SearchDevice'
 
-const IssueForm = () => {
+const IssueForm = ({ devices }) => {
+  const [date, setDate] = useState('')
+  const [endDate, setEndDate] = useState('')
+  const [name, setName] = useState('')
+  const [department, setDepartment] = useState('')
+  const [manufacturer, setManufacturer] = useState('')
+  const [deviceNumber, setDeviceNumber] = useState('')
+  const [receiver, setReceiver] = useState('')
+
+  const handleDateChange = (event) => {
+    event.preventDefault()
+    setDate(event.target.value)
+  }
+
+  const handleEndDateChange = (event) => {
+    event.preventDefault()
+    setEndDate(event.target.value)
+  }
+
+  const handleNameChange = (event) => {
+    event.preventDefault()
+    setName(event.target.value)
+  }
+
+  const handleDepartmentChange = (event) => {
+    event.preventDefault()
+    setDepartment(event.target.value)
+  }
+
+  const handleManufacturerChange = (event) => {
+    event.preventDefault()
+    setManufacturer(event.target.value)
+  }
+
+  const handleDeviceNumberChange = (event) => {
+    event.preventDefault()
+    setDeviceNumber(event.target.value)
+  }
+
+  const handleReceiverChange = (event) => {
+    event.preventDefault()
+    setReceiver(event.target.value)
+  }
+
+  const handleAddIssuance = () => {
+    console.log('Add issuance')
+    console.log(
+      'Date:',
+      date,
+      'End date:',
+      endDate,
+      'Name:',
+      name,
+      'Department:',
+      department,
+      'Manufacturer:',
+      manufacturer,
+      'Device number:',
+      deviceNumber,
+      'Receiver:',
+      receiver
+    )
+  }
+
   return (
-    <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="outlined-basic" label="Date" variant="outlined" />
-      <TextField id="filled-basic" label="End date" variant="filled" />
-      <br></br>
-      <TextField id="standard-basic" label="Name" />
-      <TextField id="standard-basic" label="Department" />
-      <TextField id="standard-basic" label="Manufacturer" />
-      <br></br>
-      <TextField id="standard-basic" label="Device number" />
-      <TextField id="standard-basic" label="Receiver" />
-      <TextField id="standard-basic" label="Start date" />
-    </Box>
+    <>
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+        onSubmit={handleAddIssuance}
+      >
+        <TextField
+          value={date}
+          onChange={handleDateChange}
+          id="outlined-basic"
+          label="Date (yyyy-mm-dd)"
+          variant="outlined"
+        />
+        <TextField
+          value={endDate}
+          onChange={handleEndDateChange}
+          id="filled-basic"
+          label="End date (yyyy-mm-dd)"
+          variant="filled"
+        />
+        <br></br>
+        <TextField
+          value={name}
+          onChange={handleNameChange}
+          id="standard-basic"
+          label="Device"
+        />
+        <TextField
+          value={department}
+          onChange={handleDepartmentChange}
+          id="standard-basic"
+          label="Department"
+        />
+        <TextField
+          name={manufacturer}
+          onChange={handleManufacturerChange}
+          id="standard-basic"
+          label="Manufacturer"
+        />
+        <br></br>
+        <TextField
+          value={deviceNumber}
+          onChange={handleDeviceNumberChange}
+          id="standard-basic"
+          label="Device number"
+        />
+        <TextField
+          value={receiver}
+          onChange={handleReceiverChange}
+          id="standard-basic"
+          label="Receivers name"
+        />
+        <Button variant="contained" type="submit">
+          Submit
+        </Button>
+      </Box>
+      <SearchDevice devices={devices} />
+    </>
   )
+}
+
+IssueForm.propTypes = {
+  devices: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      manufacturer: PropTypes.string,
+      deviceNumber: PropTypes.string,
+      currentIssuance: PropTypes.shape({
+        receiver: PropTypes.string,
+        department: PropTypes.string,
+        start: PropTypes.string,
+        end: PropTypes.string,
+      }),
+    })
+  ),
 }
 
 export default IssueForm
