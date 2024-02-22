@@ -4,6 +4,7 @@ import Button from '@mui/material/Button'
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 import SearchDevice from './SearchDevice'
+import axios from 'axios'
 
 const IssueForm = ({ devices }) => {
   const [date, setDate] = useState('')
@@ -49,24 +50,19 @@ const IssueForm = ({ devices }) => {
     setReceiver(event.target.value)
   }
 
-  const handleAddIssuance = () => {
-    console.log('Add issuance')
-    console.log(
-      'Date:',
-      date,
-      'End date:',
-      endDate,
-      'Name:',
-      name,
-      'Department:',
-      department,
-      'Manufacturer:',
-      manufacturer,
-      'Device number:',
-      deviceNumber,
-      'Receiver:',
-      receiver
-    )
+  const handleAddIssuance = async (event) => {
+    event.preventDefault()
+    try {
+      await axios.post('http://localhost:3001/api/issuances', {
+        date,
+        endDate,
+        department,
+        deviceNumber,
+        receiver,
+      })
+    } catch (error) {
+      console.log('Failed to add issuance', error)
+    }
   }
 
   return (

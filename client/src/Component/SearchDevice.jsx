@@ -27,7 +27,6 @@ const SearchDevice = ({
   }, [searchTerm])
 
   const handleDeviceSelect = (device) => {
-    console.log(device.manufacturer)
     setName(device.name)
     setManufacturer(device.manufacturer)
     setDeviceNumber(device.deviceNumber)
