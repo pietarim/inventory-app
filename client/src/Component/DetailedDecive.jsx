@@ -26,15 +26,22 @@ const DetailedDevice = () => {
   return (
     <div>
       <h1>device</h1>
-      <Typography>Device name: {device?.name}</Typography>
-      <Typography>Manufacturer: {device?.manufacturer}</Typography>
-      <Typography>Device number: {device?.deviceNumber}</Typography>
+      <Typography>Device name: {device?.name}</Typography>{' '}
+      <Typography>Manufacturer: {device?.manufacturer}</Typography>{' '}
+      <Typography>Device number: {device?.deviceNumber}</Typography>{' '}
       <Typography>
         Current issuance: {device?.currentIssuance?.receiver}
-        department: {device?.currentIssuance?.department}
-        start: {device?.currentIssuance?.start}
-        end: {device?.currentIssuance?.end}
-      </Typography>
+        {','}
+        Department: {device?.currentIssuance?.department}
+        {','}
+        start:{' '}
+        {device?.currentIssuance?.start
+          ? device?.currentIssuance?.start
+          : 'N/A '}
+        {','}
+        end:{' '}
+        {device?.currentIssuance?.end ? device?.currentIssuance?.end : 'N/A'}
+      </Typography>{' '}
       <Typography>Issuance history:</Typography>
       <div>
         {device?.issuanceHistory?.map((issuance) => (

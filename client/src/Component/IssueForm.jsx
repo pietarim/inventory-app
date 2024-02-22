@@ -108,7 +108,7 @@ const IssueForm = ({ devices }) => {
           label="Department"
         />
         <TextField
-          name={manufacturer}
+          value={manufacturer}
           onChange={handleManufacturerChange}
           id="standard-basic"
           label="Manufacturer"
@@ -130,7 +130,12 @@ const IssueForm = ({ devices }) => {
           Submit
         </Button>
       </Box>
-      <SearchDevice devices={devices} />
+      <SearchDevice
+        setName={setName}
+        setManufacturer={setManufacturer}
+        setDeviceNumber={setDeviceNumber}
+        devices={devices}
+      />
     </>
   )
 }
