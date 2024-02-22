@@ -1,8 +1,8 @@
 import express from 'express'
-import { issuanceByDeviceId } from '../controllers/issuance.js'
+import { saveIssuance } from '../controllers/issuance.js'
 
 const router = express.Router()
 
-router.get('/', issuanceByDeviceId)
+router.post('/', saveIssuance)
 
 export default router

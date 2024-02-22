@@ -22,9 +22,6 @@ try {
 
 app.use('/api/devices', deviceRouter)
 app.use('/api/issuances', issuanceRouter)
-app.get('/api', (req, res) => {
-  res.send('inventory')
-})
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
